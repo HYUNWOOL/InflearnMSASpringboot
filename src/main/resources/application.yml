@@ -3,13 +3,23 @@ server:
 
 logging:
   level:
-    org.springframework: DEBUG
+    org.springframework: INFO
 
 spring:
   security:
     user:
       name: username
       password: 1121
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+  h2:
+    console:
+      enabled: true
   messages:
     basename: messages
 

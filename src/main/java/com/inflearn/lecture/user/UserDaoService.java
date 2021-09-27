@@ -8,11 +8,11 @@ import java.util.*;
 public class UserDaoService {
     private static List<User> users = new ArrayList<>();
     private static int userCnt = 3;
-    static{
-        users.add(new User (1,"Lee", new Date(),"121212-1111111", "pwd"));
-        users.add(new User (2,"Hyun", new Date(),"131313-1111111", "pwd"));
-        users.add(new User (3,"Woo", new Date(),"141414-1111111", "pwd"));
-    }
+//    static{
+//        users.add(new User (1,"Lee", new Date(),"121212-1111111", "pwd"));
+//        users.add(new User (2,"Hyun", new Date(),"131313-1111111", "pwd"));
+//        users.add(new User (3,"Woo", new Date(),"141414-1111111", "pwd"));
+//    }
 
     public List<User> findAll(){
         return users;
