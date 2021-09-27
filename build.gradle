@@ -21,15 +21,27 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok:1.18.12'
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
+	//hal browser
+	implementation 'org.springframework.data:spring-data-rest-hal-browser:3.3.9.RELEASE'
+
+	//actuator
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.10.2'
 
+	//hateoas
+	implementation 'org.springframework.boot:spring-boot-starter-hateoas:2.4.3'
+
 	//swagger
-	implementation 'io.springfox:springfox-swagger2:2.6.1'
-	implementation 'io.springfox:springfox-swagger-ui:2.6.1'
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+//	implementation 'io.springfox:springfox-swagger2:3.0.0'
+//	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 
 	//validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	//security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 
 	//H2
 	runtimeOnly 'com.h2database:h2'
