@@ -2,6 +2,8 @@ package com.inflearn.lecture.controller;
 
 
 import com.inflearn.lecture.exception.UserNotFoundException;
+import com.inflearn.lecture.user.Post;
+import com.inflearn.lecture.user.PostRepository;
 import com.inflearn.lecture.user.User;
 import com.inflearn.lecture.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class UserJpaController {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PostRepository postRepository;
 
     @GetMapping("/users")
     public List<User> findAll(){
@@ -58,6 +62,34 @@ public class UserJpaController {
             .path("/{id}")
             .buildAndExpand(savedUser.getId())
             .toUri();
+        return ResponseEntity.created(location).build();
+    }
+
+    @GetMapping("/users/{id}/posts")
+    public List<Post> findPostByUser(@PathVariable int id){
+        Optional<User> user =  userRepository.findById(id);
+
+        if(!user.isPresent()){
+            throw new UserNotFoundException(String.format("ID[%s] not fount", id));
+        }
+        return user.get().getPosts();
+    }
+
+    @PostMapping("/users/{id}/posts")
+    public ResponseEntity<Post> savePost(@PathVariable int id, @Valid @RequestBody Post post){
+        Optional<User> user =  userRepository.findById(id);
+
+        if(!user.isPresent()){
+            throw new UserNotFoundException(String.format("ID[%s] not fount", id));
+        }
+        post.setUser(user.get());
+        Post savePost = postRepository.save(post);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+            .path("/{id}")
+            .buildAndExpand(savePost.getId())
+            .toUri();
+
         return ResponseEntity.created(location).build();
     }
 }
