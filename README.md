@@ -1,5 +1,5 @@
 # InflearnMSASpringboot
-Inflearn 강의 Restful API WebService,  Spring Cloud 활용
+Inflearn 강의 Restful API WebService 활용
 
 https://www.inflearn.com/course/spring-boot-restful-web-services#curriculum
 
