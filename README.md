@@ -8,8 +8,12 @@ https://www.inflearn.com/course/spring-boot-restful-web-services#curriculum
 수업에서는 Maven, Postman으로 API 통신하는 실습환경이었지만,
 해당 프로젝트에서는 Gradle, Swagger 로 실습 환경을 갖춰져있습니다.
 
-20210921
-~ chapter.2
-20210923
 
+실습환경.
+SpringBoot 2.5
+H2
+Gradle
+Swagger 3
+Postman
+Fiddler
 
